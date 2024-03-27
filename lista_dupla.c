@@ -26,6 +26,9 @@ void inicializa_lista (t_lista * lista) {
     lista->primeiro = NULL;
     lista->ultimo = NULL;
 }
+int esta_vazia(t_lista * lista) {
+    return lista->primeiro == NULL;
+}
 
 // int main() {
 //     t_no * no1 = constroi_no(10);
@@ -41,8 +44,18 @@ int main() {
     t_lista lista;
     printf("primeiro antes: %p\n", lista.primeiro);
     printf("ultimo antes: %p\n", lista.ultimo);
+    if (esta_vazia(&lista)) {
+        printf("lista vazia\n");
+    } else {
+        printf("lista nao esta vazia\n");
+    }
     inicializa_lista(&lista);
     printf("primeiro depois: %p\n", lista.primeiro);
     printf("ultimo depois: %p\n", lista.ultimo);
+        if (esta_vazia(&lista)) {
+        printf("lista vazia\n");
+    } else {
+        printf("lista nao esta vazia\n");
+    }
     return 0;
 }

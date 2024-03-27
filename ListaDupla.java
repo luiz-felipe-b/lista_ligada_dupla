@@ -1,4 +1,5 @@
 public class ListaDupla {
+    private int length;
     private NoDuplo primeiro;
     private NoDuplo ultimo;
     //construtor é o padrão
@@ -15,6 +16,7 @@ public class ListaDupla {
             primeiro.setAnterior(novo);
         }
         primeiro = novo;
+        length++;
     }
     public void insereFim(int info){
         NoDuplo novo = new NoDuplo(info);
@@ -26,6 +28,7 @@ public class ListaDupla {
             ultimo.setProximo(novo);
         }
         ultimo = novo;
+        length++;
     }
     public int removeFim () {
         int temp = ultimo.getInfo();
@@ -92,5 +95,24 @@ public class ListaDupla {
             }
             return info;
         }
+    }
+    public Retorno encontraMaior() {
+        Retorno retorno = new Retorno();
+        int maior = 0;
+        boolean achou = false;
+        NoDuplo aux = primeiro;
+        if (estaVazia()) {
+            return retorno;
+        }
+        for (int i = 0; i < length; i++) {
+            if (aux.getInfo() > maior) {
+                maior = aux.getInfo();
+            }
+            aux = aux.getProximo();
+
+        }
+        retorno.setInfo(maior);
+        retorno.setAchou(achou);
+        return retorno;
     }
 }
